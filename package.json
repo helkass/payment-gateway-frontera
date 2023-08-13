@@ -1,0 +1,26 @@
+{
+   "name": "y",
+   "version": "1.0.0",
+   "description": "free api payment service sanbox",
+   "main": "src/index.js",
+   "scripts": {
+      "start": "nodemon src/index.js"
+   },
+   "keywords": [
+      "api",
+      "express",
+      "payment-gateway",
+      "payment",
+      "sanbox"
+   ],
+   "author": "helka-septyawan",
+   "license": "ISC",
+   "dependencies": {
+      "cors": "^2.8.5",
+      "dotenv": "^16.3.1",
+      "express": "^4.18.2",
+      "mongoose": "^7.4.3",
+      "nodemon": "^3.0.1",
+      "uuid": "^9.0.0"
+   }
+}
