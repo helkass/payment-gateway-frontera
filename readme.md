@@ -23,7 +23,7 @@ This project is used by:
 ## Base Url api
 
 ```javascript
-const base_url = "http://localhost:5002/api";
+const base_url = "https://tiny-tie-bee.cyclic.app/api";
 ```
 
 ## Create Transaction
