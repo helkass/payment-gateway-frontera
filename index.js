@@ -7,24 +7,27 @@ const mongoose = require("mongoose");
 dotenv.config();
 const app = express();
 
-mongoose
-   .connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-   })
-   .then((e) => {
-      console.log("database connected");
-   })
-   .catch(() => new Error("database cannot connected"));
+const connectDB = async () => {
+   try {
+      const conn = await mongoose.connect(process.env.MONGO_URI);
+      console.log(`MongoDB Connected: ${conn.connection.host}`);
+   } catch (error) {
+      console.log(error);
+      process.exit(1);
+   }
+};
 
 const PORT = process.env.PORT || 5002;
 
 app.use(cors());
 app.use(express.json());
 
-app.listen(PORT, () => {
-   console.log(`server running on port : ${PORT}`);
+//Connect to the database before listening
+connectDB().then(() => {
+   app.listen(PORT, () => {
+      console.log("SERVER RUNNING");
+   });
 });
 
 // router
-app.use("/api/order", transactionRoutes);
+app.use("/order", transactionRoutes);
