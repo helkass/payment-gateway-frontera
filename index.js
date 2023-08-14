@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
-const transactionRoutes = require("./routes/transaction.routes");
+const transactionRoutes = require("./src/routes/transaction.routes");
 const dotenv = require("dotenv");
-const Db = require("./config/mongoConfig");
+const Db = require("./src/config/mongoConfig");
 
 dotenv.config();
 Db.connect();
