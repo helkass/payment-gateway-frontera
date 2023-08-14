@@ -1,10 +1,10 @@
 {
-   "name": "Payment gateway service frontera",
+   "name": "Payment-gateway-service-frontera",
    "version": "1.0.0",
    "description": "free api payment service sanbox",
    "main": "index.js",
    "scripts": {
-      "start": "nodemon index.js"
+      "start": "node index.js"
    },
    "keywords": [
       "api",
