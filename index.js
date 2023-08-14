@@ -2,11 +2,20 @@ const express = require("express");
 const cors = require("cors");
 const transactionRoutes = require("./src/routes/transaction.routes");
 const dotenv = require("dotenv");
-const Db = require("./src/config/mongoConfig");
+const mongoose = require("mongoose");
 
 dotenv.config();
-Db.connect();
 const app = express();
+
+mongoose
+   .connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+   })
+   .then((e) => {
+      console.log("database connected");
+   })
+   .catch(() => new Error("database cannot connected"));
 
 const PORT = process.env.PORT || 5002;
 
@@ -15,10 +24,6 @@ app.use(express.json());
 
 app.listen(PORT, () => {
    console.log(`server running on port : ${PORT}`);
-});
-
-app.get("/api", (req, res) => {
-   res.send("Hello payment service frontera");
 });
 
 // router
