@@ -8,8 +8,7 @@ class Db {
             useUnifiedTopology: true,
          })
          .then((e) => {
-            const host = e.mongoose.connections.map((d) => d.host);
-            console.log(`database connected, host : ${host[0]}`);
+            console.log("database connected");
          })
          .catch(() => new Error("database cannot connected"));
    }
