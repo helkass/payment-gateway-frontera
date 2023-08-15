@@ -23,7 +23,7 @@ This project is used by:
 ## Base Url api
 
 ```javascript
-const base_url = "https://tiny-tie-bee.cyclic.app/api";
+const base_url = "https://tiny-tie-bee.cyclic.app/";
 ```
 
 ## Create Transaction
@@ -37,13 +37,13 @@ urlEnpoint = "/order/createTransaction";
 ```JSON
 {
     "transaction_details": {
-            "order_id": "oeihrg9834nt4g4g",
-            "gross_amount": 20000
+    "order_id": "226135hnb1wcetv25",
+    "gross_amount":21000
     },
-    "payment_method": "bank_transfer",
-    "bank_transfer": {
-        "bank_name": "bri"
-    }
+    "payment_details": {
+            "payment_name": "paypal",
+            "payment_number": 9287546545463646
+        }
 }
 ```
 
@@ -51,17 +51,22 @@ urlEnpoint = "/order/createTransaction";
 
 ```JSON
 {
-    "status_code": 201,
-    "status_message": "Transaction success",
-    "order_id": "oeihrg9834nt4g4g",
-    "gross_amount": 20000,
-    "transaction_status": "pending",
-    "payment_details": {
-        "payment_name": "paypal",
-        "payment_number": 9287546545464646
-    },
-    "va_number": "183c750eftfb6df",
-    "_id": "64d8c671d16242a79e96ba3e"
+    "status": true,
+    "data": {
+        "order_id": "226135hnb1wcetv25",
+        "gross_amount": 21000,
+        "transaction_status": "pending",
+        "payment_details": {
+            "payment_name": "paypal",
+            "payment_number": 9287546545463646
+        },
+        "va_number": "bdf9fe39ft5d7ef",
+        "expiryAt": "2023-08-16T10:06:23.596Z",
+        "_id": "64db4e1f96ce3c1759c11e22",
+        "createdAt": "2023-08-15T10:06:23.597Z",
+        "updatedAt": "2023-08-15T10:06:23.597Z",
+        "__v": 0
+    }
 }
 ```
 
@@ -144,6 +149,21 @@ urlEnpoint = "/pay/:id";
 ```json
 {
    "status": true,
-   "message": "successful payment"
+   "message": "successful payment",
+    "data": {
+        "payment_details": {
+        "payment_name": "paypal",
+        "payment_number": 9287546545463646
+      },
+      "_id": "64db4e1f96ce3c1759c11e22",
+      "order_id": "226135hnb1wcetv25",
+      "gross_amount": 21000,
+      "transaction_status": "settlement",
+      "va_number": "bdf9fe39ft5d7ef",
+      "expiryAt": "2023-08-16T10:06:23.596Z",
+      "createdAt": "2023-08-15T10:06:23.597Z",
+      "updatedAt": "2023-08-15T10:12:12.217Z",
+      "__v": 0
+    }
 }
 ```
