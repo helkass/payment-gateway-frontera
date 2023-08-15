@@ -129,7 +129,11 @@ class FApi {
                .then((data) =>
                   res
                      .status(202)
-                     .json({ status: true, message: "successful payment" })
+                     .json({
+                        status: true,
+                        message: "successful payment",
+                        data,
+                     })
                )
                .catch((err) =>
                   res
