@@ -37,7 +37,7 @@ class FApi {
 
       try {
          const saved = await newTransaction.save();
-         res.status(200).json({ statuc: true, data: saved });
+         res.status(200).json({ status: true, data: saved });
       } catch (error) {
          res.status(405);
       }
@@ -127,13 +127,11 @@ class FApi {
                { transaction_status: "settlement" }
             )
                .then((data) =>
-                  res
-                     .status(202)
-                     .json({
-                        status: true,
-                        message: "successful payment",
-                        data,
-                     })
+                  res.status(202).json({
+                     status: true,
+                     message: "successful payment",
+                     data,
+                  })
                )
                .catch((err) =>
                   res
